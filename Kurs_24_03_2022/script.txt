@@ -1,0 +1,77 @@
+create schema q27;
+
+create table user (
+    id int auto_increment primary key,
+    name varchar(20) null,
+    city varchar(40) null,
+    constraint user_id_uindex primary key (id)
+);
+insert into user (name,city) values ('n1','c1'),('n2','c1'),('n3','c2'),(null,'c2'),('test','c3'),('tsest','c3');
+
+
+
+create table orders (
+    id int auto_increment,
+    user_id int null,
+    price int null,
+
+    constraint order_id_uindex primary key (id),
+    constraint order_user_id_fk foreign key (user_id) references user(id)
+);
+insert into orders (user_id,price) values (1,134),(2,500),(3,2260),(null,900);
+
+
+
+SELECT * FROM user ORDER BY name DESC;
+
+SELECT * FROM user ORDER BY name;
+
+SELECT orders.id as 'order id', user.name FROM orders
+INNER JOIN user on orders.user_id = user.id;
+
+SELECT A.name AS Name1, B.name AS Name2, A.city FROM user A, user B
+WHERE A.id <> B.id AND A.city = B.city
+ORDER BY A.City;
+
+SELECT user.name FROM user where city = 'c1'
+UNION
+SELECT user.name FROM user where city = 'c2';
+
+SELECT * FROM user WHERE name LIKE '%test%';
+
+SELECT * FROM user WHERE name LIKE 't_est';
+
+SELECT user.name AS alias_name FROM user;
+
+INSERT INTO user (name, city) SELECT name,city FROM user WHERE user.name is null;
+
+DELETE FROM user WHERE name like '%est';
+
+TRUNCATE TABLE orders;
+
+SELECT * FROM user WHERE id % 2 != 0;
+
+SELECT city, COUNT(city)-1 as 'duplicates count' FROM user
+GROUP BY city
+HAVING COUNT(city) > 1;
+
+SELECT DATE_ADD(NOW(),INTERVAL 1 DAY) as new_date FROM user;
+
+SELECT DISTINCT name FROM user;
+
+SELECT AVG(price) FROM orders;
+
+SELECT * FROM orders
+WHERE price > (SELECT AVG(price) FROM orders);
+
+SELECT * FROM orders
+RIGHT JOIN user on (orders.user_id = user.id)
+WHERE orders.user_id IS NULL;
+
+UPDATE orders SET price = if(price < 600,600,1500);
+#
+UPDATE orders SET price = case when price < 600 then price = 600 else price = 1500 end;
+
+SELECT CONCAT(name,' ',city) AS new_field FROM user where name is not null;
+
+ALTER TABLE user RENAME customer;
