@@ -1,0 +1,25 @@
+create schema people;
+
+create table people.person
+(
+    id             int auto_increment primary key,
+    age            int          null,
+    salary         float        null,
+    passport       char(10)     null,
+    address        varchar(200) null,
+    dateOfBirthday date         null,
+    dateTimeCreate datetime     null,
+    timeToLunch    time         null,
+    letter         text null,
+
+    constraint Person_id_uindex unique (id)
+);
+
+insert into people.person (age, salary, passport, address, dateOfBirthday, dateTimeCreate, timeToLunch, letter) values
+(22,500.32,'MP32444462','1 _ ergthyjuioluyjtrgefsdfg','2001.02.15',NOW(),CURRENT_TIME-CURRENT_TIME,'...'),
+(20,700.18,'MP32418023','2 _ jfmndhtfyrdt pznjyjh','2003.04.07',NOW()+1,CURRENT_TIME-CURRENT_TIME,'...'),
+(23,430.8,'MP11579048','3 _ kusrtyuioowhnmntyj ry','2003.05.16',NOW()+2,CURRENT_TIME-CURRENT_TIME,'...'),
+(19,1267.09,'MP55783989','4 _ jkiryoppiqrtmjsr','2002.11.30',NOW()+3,CURRENT_TIME-CURRENT_TIME,'...'),
+(21,1500,'MP68727268','5 _ jnhuywarttymkmoiyjhkj','2000.09.19',NOW()+4,CURRENT_TIME-CURRENT_TIME,'...');
+
+select * from people.person where age > 21 order by dateTimeCreate
