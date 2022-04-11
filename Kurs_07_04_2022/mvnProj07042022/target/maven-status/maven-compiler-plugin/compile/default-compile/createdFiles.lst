@@ -1,0 +1,9 @@
+projectGroup\dao\DAO.class
+projectGroup\dao\RequestExecutor.class
+projectGroup\entity\anotations\MyColumn.class
+projectGroup\App.class
+projectGroup\entity\Entity.class
+projectGroup\dao\DAOFactory.class
+projectGroup\entity\anotations\MyTable.class
+projectGroup\dao\EntityDAO.class
+projectGroup\JDBCUtils.class
