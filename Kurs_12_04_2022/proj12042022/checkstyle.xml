@@ -13,7 +13,7 @@
         <module name="SuppressionCommentFilter"/>
         <module name="SuppressWarningsHolder"/>
 
-        <module name="ConstantName"/>
+<!--        <module name="ConstantName"/>-->
         <module name="LocalVariableName"/>
         <module name="MethodName"/>
 <!--        <module name="PackageName"/>-->

@@ -6,13 +6,16 @@ import javax.persistence.Persistence;
 
 public class HibernateUtil {
     public static final EntityManagerFactory emFactory;
+
     static {
         emFactory = Persistence.createEntityManagerFactory("mainDB");
     }
-    public static EntityManager getEntityManager (){
+
+    public static EntityManager getEntityManager() {
         return emFactory.createEntityManager();
     }
-    public static void close(){
+
+    public static void close() {
         emFactory.close();
     }
 }
