@@ -1,0 +1,39 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="mainDB" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>proj12042022.entities.Address</class>
+        <class>proj12042022.entities.People</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" /> <!--org.h2.Driver-->
+            <property name="javax.persistence.jdbc.url"    value="jdbc:mysql://localhost:3306/my_database?createDatabaseIfNotExist=true"/> <!--jdbc:h2:mem:bookstore-->
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="2345" />
+            <property name="hibernate.dialect.storage_engine" value="innodb" /> <!--org.hibernate.dialect.H2Dialect-->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.connection.pool_size" value="10"/>
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="testDB" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>proj12042022.entities.Address</class>
+        <class>proj12042022.entities.People</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+            <property name="javax.persistence.jdbc.url"    value="jdbc:h2:mem:test"/>
+            <property name="javax.persistence.jdbc.user" value="sa" />
+            <property name="javax.persistence.jdbc.password" value="" />
+            <property name="hibernate.dialect.storage_engine" value="org.hibernate.dialect.H2Dialect" />
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.connection.pool_size" value="10"/>
+        </properties>
+    </persistence-unit>
+</persistence>
