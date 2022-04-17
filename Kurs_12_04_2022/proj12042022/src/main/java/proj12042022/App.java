@@ -6,10 +6,8 @@ import proj12042022.entities.People;
 
 import javax.persistence.EntityManager;
 
-public class App
-{
-    public static void main( String[] args )
-    {
+public class App {
+    public static void main(String[] args) {
         Address a = Address.builder().city("city17").street("street17").house("17").build();
         People p = People.builder().name("name1").surname("surname1").patronymic("patronymic1").build();
 
@@ -43,6 +41,6 @@ public class App
 
         em.close();
         HibernateUtil.close();
-        System.out.println( "done" );
+        System.out.println("done");
     }
 }
