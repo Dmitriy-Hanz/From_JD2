@@ -11,7 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Table
-@DiscriminatorValue("H")
+@PrimaryKeyJoinColumn(name = "task_id")
 public class HomeTask extends Task {
     private LocalDate startDate;
     private LocalDate endDate;
