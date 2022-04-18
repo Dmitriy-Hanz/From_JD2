@@ -10,9 +10,8 @@ import javax.persistence.*;
 
 @Entity
 @Table
-@Inheritance (strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TASK_TYPE", discriminatorType = DiscriminatorType.CHAR)
-@DiscriminatorValue("T")
+@Inheritance (strategy = InheritanceType.JOINED)
+
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
